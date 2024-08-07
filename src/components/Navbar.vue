@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex flex-column flex-md-row align-items-center py-3 mb-4 border-bottom">
-        <span class="logo-text ms-2 text-body-emphasis fw-bold d-none d-md-inline ">
+        <span class="logo-text ms-2 text-body-emphasis fw-bold d-none d-md-inline " @click="toHomeHandler">
             Ayub <span class="highlighted-text">Dev.</span>
         </span>
 
@@ -33,6 +33,9 @@ export default {
         };
     },
     methods: {
+        toHomeHandler() {
+            return this.$router.push('/');
+        },
         toggleModal() {
             this.modalOpen = !this.modalOpen;
         }
