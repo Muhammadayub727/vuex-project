@@ -1,9 +1,8 @@
 <template>
     <div class="d-flex flex-column flex-md-row align-items-center py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
-            <img :src="logo" alt="logo" class="logo" @click="toHomeHandler">
-            <p class="logo-text">AyubDev</p>
-        </a>
+        <span class="logo-text ms-2 text-body-emphasis fw-bold d-none d-md-inline ">
+            Ayub <span class="highlighted-text">Dev.</span>
+        </span>
 
         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto position-relative">
             <button class="ms-3 py-2 link-body-emphasis text-decoration-none custom-link border-0 bg-transparent" @click="toggleModal">
@@ -24,21 +23,14 @@
 </template>
 
 <script>
-import logo from '@/assets/logo.png'
 import { RouterLink } from 'vue-router';
 
 export default {
     name: "Navbar",
     data() {
         return {
-            logo,
             modalOpen: false
         };
-    },
-    methods: {
-        toHomeHandler() {
-            return this.$router.push('/');
-        }
     },
     methods: {
         toggleModal() {
@@ -55,17 +47,20 @@ export default {
     font-size: 20px;
     font-weight: bold;
     margin-top: 15px;
+    color: #FFA857;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
-    width: 50px;
-    height: 50px;
-    margin-left: 10px;
-    border-radius: 50%;
+.highlighted-text {
+    color: #FFFFFF;
+    background: linear-gradient(90deg, #FFA500 0%, #FF8C00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .custom-link {
-    color: #6c757d;
+    color: #FFA857;
 }
 
 .custom-link:hover {
@@ -110,7 +105,8 @@ export default {
     line-height: 1;
     cursor: pointer;
 }
-.modal-button{
+
+.modal-button {
     border: none;
     border-radius: 4px;
     padding: 8px 16px;

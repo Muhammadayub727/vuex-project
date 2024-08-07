@@ -1,15 +1,19 @@
 <template>
-    <div>
-        <h1>Register</h1>
+    <div  class="text-center">
+        <Register/>
     </div>
 </template>
 
 <script>
-export default {
+import {Register} from "@/components"
 
+export default {
+    components: {
+        Register
+    }
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
