@@ -1,15 +1,15 @@
 <template>
     <main class="form-signin w-25 m-auto mt-5">
-<form >
-    <img :src="logo" alt="logo" class="logo" style="cursor: pointer;" @click="toHomeHandler">
-    <h1 class="h3 mb-3 fw-normal mt-3">Register</h1>
+        <form>
+            <img :src="logo" alt="logo" class="logo" style="cursor: pointer;" @click="toHomeHandler">
+            <h1 class="h3 mb-3 fw-normal mt-3">Register</h1>
 
-    <Input :label="'Name'" :type="'text'" :placeholder="'YourName'"/>
-    <Input :label="'Email address'" :type="'email'" :placeholder="'name@example.com'"/>
-    <Input :label="'Password'" :type="'password'" :placeholder="'Password'"/>
-    <Button type="submit" :disabled="isLoading" @click="submitHandler">Register</Button>
-</form>
-</main>
+            <Input :label="'Name'" :type="'text'" :placeholder="'YourName'"/>
+            <Input :label="'Email address'" :type="'email'" :placeholder="'name@example.com'"/>
+            <Input :label="'Password'" :type="'password'" :placeholder="'Password'"/>
+            <Button type="submit" :disabled="isLoading" @click="submitHandler">Register</Button>
+        </form>
+    </main>
 </template>
 
 <script>
@@ -24,23 +24,22 @@ export default {
     },
     computed: {
         isLoading() {
-            return this.$store.state.auth.isLoading
+            return this.$store.state.auth.isLoading;
         }
     },
     methods: {
-        toHomeHandler() {
-            return this.$router.push('/');
-        },
         submitHandler(e){
             e.preventDefault();
-            this.$store.commit('setIsLoading')
+            this.$store.commit('setLoading', true);
+        },
+        toHomeHandler() {
+            return this.$router.push('/');
         }
     }
 }
 </script>
 
 <style scoped>
-  
 .logo {
     width: 100px;
     height: 75px;
