@@ -1,14 +1,14 @@
 <template>
     <main class="form-signin w-25 m-auto mt-5">
-  <form >
+<form >
     <img :src="logo" alt="logo" class="logo" style="cursor: pointer;" @click="toHomeHandler">
     <h1 class="h3 mb-3 fw-normal mt-3">Register</h1>
 
     <Input :label="'Name'" :type="'text'" :placeholder="'YourName'"/>
     <Input :label="'Email address'" :type="'email'" :placeholder="'name@example.com'"/>
     <Input :label="'Password'" :type="'password'" :placeholder="'Password'"/>
-    <Button type="submit">Register</Button>
-  </form>
+    <Button type="submit" :disabled="isLoading" @click="submitHandler">Register</Button>
+</form>
 </main>
 </template>
 
@@ -22,9 +22,18 @@ export default {
             logo
         };
     },
+    computed: {
+        isLoading() {
+            return this.$store.state.auth.isLoading
+        }
+    },
     methods: {
         toHomeHandler() {
             return this.$router.push('/');
+        },
+        submitHandler(e){
+            e.preventDefault();
+            this.$store.commit('setIsLoading')
         }
     }
 }
