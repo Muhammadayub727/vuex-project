@@ -1,9 +1,9 @@
-import  submitPost  from "./axios";
+import submitPost from "./axios";
 // import axios from "axios"
 
 const AuthServise = {
   register(user) {
-    return submitPost("/users", { user });
+    return submitPost("/users", user);
   },
 };
 

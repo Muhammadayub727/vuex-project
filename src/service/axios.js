@@ -2,10 +2,9 @@ import axios from "axios";
 let baseURL = "http://localhost:3000/api";
 
 function submitPost(endpoint, data) {
-  console.log(data);
 
   axios
-    .post(baseURL + endpoint,  data )
+    .post(baseURL + endpoint, data)
     .then((res) => {
       console.log("success");
     })
@@ -14,4 +13,4 @@ function submitPost(endpoint, data) {
     });
 }
 
-export default  submitPost ;
+export default submitPost;
