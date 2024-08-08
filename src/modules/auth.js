@@ -1,23 +1,24 @@
+import AuthServise from "@/service/auth";
+
 const state = {
-    isLoading: false
+  isLoading: false,
 };
 
 const mutations = {
-    setLoading(state, payload) {
-        state.isLoading = payload;
-    }
+  setLoading(state) {
+    console.log(state)
+    state.isLoading = true;
+  },
 };
 
 const actions = {
-    register(context, payload) {
-        setTimeout(() => {
-            context.commit("setLoading", false); 
-        },2000);
-    }
+  register(context, user) { 
+    AuthServise.register(user);
+  },
 };
 
 export default {
-    state,
-    mutations,
-    actions
+  state,
+  mutations,
+  actions,
 };

@@ -24,13 +24,19 @@ export default {
     },
     computed: {
         isLoading() {
-            return this.$store.state.auth.isLoading;
+            return this.$store.state.auth.isLoading
         }
     },
     methods: {
         submitHandler(e){
             e.preventDefault();
-            this.$store.commit('setLoading', true);
+            const data = {
+                    username:"Muhammadayub",
+                    email: "qJvLc@example.com",
+                    password:"12345634873487"
+            }
+            this.$store.commit('setLoading', data);
+            this.$store.dispatch('register', data)
         },
         toHomeHandler() {
             return this.$router.push('/');
